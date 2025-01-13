@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nitro build",
+    "dev": "nitro dev",
+    "prepare": "nitro prepare",
+    "preview": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.30.1",
+    "nitropack": "latest",
+    "tsx": "^4.19.2"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.3"
+  }
+}
