@@ -1,3 +1,9 @@
+export function formatError(error, message) {
+  return new Response(JSON.stringify({ error, message }), {
+    status: error,
+  });
+}
+
 export function formatResponse(user) {
   const localTime = new Date().toLocaleString("en-US", {
     timeZone: user.timezone,
@@ -27,12 +33,12 @@ export function formatResponse(user) {
     currentTime: localTime,
     currentDate: localDate,
     currentOffset: offset,
-    // linkedAccounts: {
-    //   ...(user.discord ? { discord: user.discord } : {}),
-    //   ...(user.twitter ? { twitter: user.twitter } : {}),
-    //   ...(user.bsky ? { bsky: user.bsky } : {}),
-    //   ...(user.github ? { github: user.github } : {}),
-    // },
+    linkedAccounts: {
+      ...(user.discord ? { discord: user.discord } : {}),
+      ...(user.twitter ? { twitter: user.twitter } : {}),
+      ...(user.bsky ? { bsky: user.bsky } : {}),
+      ...(user.github ? { github: user.github } : {}),
+    },
     serverTime: new Date().toISOString(),
     id: user.id,
   };
