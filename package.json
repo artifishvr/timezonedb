@@ -1,4 +1,6 @@
 {
+  "name": "timezonedb",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "nitro build",
@@ -14,6 +16,7 @@
   "dependencies": {
     "@libsql/client": "^0.14.0",
     "dotenv": "^16.4.7",
-    "drizzle-orm": "^0.38.3"
+    "drizzle-orm": "^0.38.3",
+    "moment-timezone": "^0.5.46"
   }
 }

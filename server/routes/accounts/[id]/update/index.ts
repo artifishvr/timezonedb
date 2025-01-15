@@ -2,6 +2,7 @@ import { db } from "~~/utils/drizzle";
 import { usersTable } from "~~/utils/db/schema";
 import { eq } from "drizzle-orm";
 import { formatError } from "~~/utils/formatter";
+import moment from "moment-timezone";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -35,7 +36,9 @@ export default defineEventHandler(async (event) => {
     return formatError(403, "Not authorized to update this user");
   }
 
-  // TODO Timezone validation
+  if (!moment.tz.zone(body.timezone)) {
+    return formatError(400, "Invalid timezone");
+  }
 
   const updatedUser = await db
     .update(usersTable)

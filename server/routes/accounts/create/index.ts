@@ -1,6 +1,8 @@
 import { db } from "~~/utils/drizzle";
 import { usersTable } from "~~/utils/db/schema";
 import { formatError } from "~~/utils/formatter";
+import { eq } from "drizzle-orm";
+import moment from "moment-timezone";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -21,8 +23,18 @@ export default defineEventHandler(async (event) => {
     return formatError(500, "This shouldn't happen.");
   }
 
-  // TODO Timezone validation
-  // TODO Check if user already exists
+  const existingUser = await db
+    .select()
+    .from(usersTable)
+    .where(eq(usersTable.discord, user.id));
+
+  if (existingUser[0]) {
+    return formatError(400, "User already exists");
+  }
+
+  if (!moment.tz.zone(body.timezone)) {
+    return formatError(400, "Invalid timezone");
+  }
 
   const newUser = await db
     .insert(usersTable)
