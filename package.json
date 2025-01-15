@@ -5,16 +5,19 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
+    "misery": "nitro dev --host=0.0.0.0",
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
     "drizzle-kit": "^0.30.1",
     "nitropack": "latest",
     "tsx": "^4.19.2"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
+    "better-sqlite3": "^11.8.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.3",
     "moment-timezone": "^0.5.46"

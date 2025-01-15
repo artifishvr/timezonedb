@@ -1,4 +1,4 @@
-FROM node:20 AS builder
+FROM node:20-alpine
 
 RUN npm install -g pnpm
 
@@ -10,14 +10,6 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN pnpm build
-
-FROM oven/bun:1-alpine AS runner
-WORKDIR /app
-
-
-COPY --from=builder /app/.output /app/.output
-
-CMD ["bun",  "run", ".output/server/index.mjs"]
+CMD ["pnpm", "dev"]
 
 EXPOSE 3000
