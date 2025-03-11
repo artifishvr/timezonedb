@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nitro build",
+    "build": "nitro build --preset bun",
     "dev": "nitro dev",
     "misery": "nitro dev --host=0.0.0.0",
     "prepare": "nitro prepare",
@@ -21,5 +21,8 @@
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.3",
     "moment-timezone": "^0.5.46"
-  }
+  },
+  "trustedDependencies": [
+    "@parcel/watcher"
+  ]
 }
