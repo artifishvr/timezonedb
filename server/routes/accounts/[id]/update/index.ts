@@ -1,7 +1,7 @@
-import { db } from "~~/utils/drizzle";
-import { usersTable } from "~~/utils/db/schema";
+import { db } from "~/utils/drizzle";
+import { usersTable } from "~/utils/db/schema";
 import { eq } from "drizzle-orm";
-import { formatError } from "~~/utils/formatter";
+import { formatError } from "~/utils/formatter";
 import moment from "moment-timezone";
 
 export default defineEventHandler(async (event) => {

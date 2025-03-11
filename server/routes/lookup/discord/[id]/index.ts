@@ -1,7 +1,7 @@
-import { db } from "~~/utils/drizzle";
-import { usersTable } from "~~/utils/db/schema";
+import { db } from "~/utils/drizzle";
+import { usersTable } from "~/utils/db/schema";
 import { eq } from "drizzle-orm";
-import { formatResponse, formatError } from "~~/utils/formatter";
+import { formatResponse, formatError } from "~/utils/formatter";
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");

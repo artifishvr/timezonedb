@@ -1,6 +1,6 @@
-import { db } from "~~/utils/drizzle";
-import { usersTable } from "~~/utils/db/schema";
-import { formatError } from "~~/utils/formatter";
+import { db } from "~/utils/drizzle";
+import { usersTable } from "~/utils/db/schema";
+import { formatError } from "~/utils/formatter";
 import { eq } from "drizzle-orm";
 import moment from "moment-timezone";
 
